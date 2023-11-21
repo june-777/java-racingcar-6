@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import java.util.Map;
-import racingcar.domain.RacingCars;
+import racingcar.domain.car.RacingCars;
 import racingcar.service.RacingCarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;

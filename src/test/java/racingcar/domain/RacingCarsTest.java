@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.CarName;
+import racingcar.domain.car.RacingCars;
 
 class RacingCarsTest {
 

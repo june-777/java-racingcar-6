@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import static racingcar.domain.exception.CarExceptionMessage.DUPLICATE_EXISTS;
 import static racingcar.domain.exception.CarExceptionMessage.OUT_OF_TOTAL_COUNT;
@@ -9,7 +9,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import racingcar.domain.car.Car;
 
 public class RacingCars {
     private static final int MIN_CAR_COUNT = 2;

@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import java.util.List;
-import racingcar.domain.RacingCars;
+import racingcar.domain.car.RacingCars;
 import racingcar.domain.mapper.RacingCarsMapper;
 
 public class RacingCarService {
