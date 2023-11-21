@@ -6,6 +6,7 @@ import static racingcar.domain.exception.CarExceptionMessage.OUT_OF_TOTAL_COUNT;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.domain.car.Car;
 
 public class RacingCars {
     private static final int MIN_CAR_COUNT = 2;
@@ -29,6 +30,12 @@ public class RacingCars {
     private void validateTotalCount(List<Car> cars) {
         if (cars.size() < MIN_CAR_COUNT || cars.size() > MAX_CAR_COUNT) {
             throw new IllegalArgumentException(OUT_OF_TOTAL_COUNT.getMessage());
+        }
+    }
+
+    public void startRace() {
+        for (Car car : cars) {
+            car.move();
         }
     }
 
