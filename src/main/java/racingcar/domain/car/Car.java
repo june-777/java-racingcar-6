@@ -13,6 +13,12 @@ public class Car {
         this.engine = engine;
     }
 
+    public void move() {
+        if (isMovable(engine.power())) {
+            position++;
+        }
+    }
+
     private boolean isMovable(int power) {
         return MOVABLE_MIN_CONDITION <= power;
     }
