@@ -110,6 +110,31 @@ class RacingCarControllerTest {
                         .doesNotThrowAnyException();
             }
         }
+
+        @DisplayName("시도 횟수를 세팅할 때")
+        @Nested
+        class TotalRoundSettingTest {
+
+            @DisplayName("[Exception] 공백 입력이면 view에서 예외가 발생한다.")
+            @ParameterizedTest
+            @ValueSource(strings = {"", " ", "  ", "\n", "\t", "\r"})
+            void blankInput(String input) {
+                InputView inputView = new InputView(() -> input);
+
+                assertThatThrownBy(inputView::readTotalRound)
+                        .hasMessage(InputExceptionMessage.BLANK.getMessgae());
+            }
+
+            @DisplayName("[Exception] 숫자가 아닌 입력이면 view에서 예외가 발생한다.")
+            @ParameterizedTest
+            @ValueSource(strings = {"1 ", "r", "  ㄱ", "!!", "@#@", "1 1"})
+            void notNumeric(String input) {
+                InputView inputView = new InputView(() -> input);
+
+                assertThatThrownBy(inputView::readTotalRound)
+                        .hasMessage(InputExceptionMessage.NOT_NUMERIC.getMessgae());
+            }
+        }
     }
 
 }
