@@ -1,5 +1,7 @@
 package racingcar.view.validator;
 
+import racingcar.view.exception.InputExceptionMessage;
+
 public class TotalRoundInputValidator {
 
     public static void validate(String target) {
@@ -9,7 +11,7 @@ public class TotalRoundInputValidator {
 
     private static void validateBlank(String target) {
         if (target == null || target.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(InputExceptionMessage.BLANK.getMessgae());
         }
     }
 
@@ -17,7 +19,7 @@ public class TotalRoundInputValidator {
         try {
             Integer.parseInt(target);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException(InputExceptionMessage.NOT_NUMERIC.getMessgae(), e);
         }
     }
 }
