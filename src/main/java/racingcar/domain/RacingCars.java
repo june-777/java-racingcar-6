@@ -3,8 +3,11 @@ package racingcar.domain;
 import static racingcar.domain.exception.CarExceptionMessage.DUPLICATE_EXISTS;
 import static racingcar.domain.exception.CarExceptionMessage.OUT_OF_TOTAL_COUNT;
 
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import racingcar.domain.car.Car;
 
@@ -37,6 +40,14 @@ public class RacingCars {
         for (Car car : cars) {
             car.move();
         }
+    }
+
+    public Map<String, Integer> getCars() {
+        Map<String, Integer> nameAndPosition = new LinkedHashMap<>();
+        for (Car car : cars) {
+            nameAndPosition.put(car.getName().getName(), car.getPosition());
+        }
+        return Collections.unmodifiableMap(nameAndPosition);
     }
 
     public boolean contains(Car car) {
