@@ -1,14 +1,20 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import java.util.Objects;
 
 public class Car {
+    private static final int MOVABLE_MIN_CONDITION = 4;
     private final CarName name;
-    private final int position;
+    private final Engine engine;
+    private int position;
 
-    public Car(CarName name, int position) {
+    public Car(CarName name, Engine engine) {
         this.name = name;
-        this.position = position;
+        this.engine = engine;
+    }
+
+    private boolean isMovable(int power) {
+        return MOVABLE_MIN_CONDITION <= power;
     }
 
     @Override
