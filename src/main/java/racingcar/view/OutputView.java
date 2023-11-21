@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import java.util.Map;
 
 public class OutputView {
@@ -18,6 +19,11 @@ public class OutputView {
             );
         }
         System.out.println();
+    }
+
+    public void printWinner(List<String> winnerNames) {
+        String winnerResultForm = String.join(", ", winnerNames);
+        System.out.printf(Message.WINNER.message, winnerResultForm);
     }
 
     private enum Message {
