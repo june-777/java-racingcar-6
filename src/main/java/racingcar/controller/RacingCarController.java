@@ -19,11 +19,16 @@ public class RacingCarController {
 
     public void run() {
         RacingCars racingCars = settingRacingCars();
+        int totalRound = settingTotalRound();
         //TODO:
     }
 
     private RacingCars settingRacingCars() {
         List<String> carNames = inputView.readCarNames();
         return racingCarService.createRacingCar(carNames);
+    }
+
+    private int settingTotalRound() {
+        return inputView.readTotalRound();
     }
 }
