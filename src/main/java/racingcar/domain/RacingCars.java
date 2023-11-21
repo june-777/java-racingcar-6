@@ -22,6 +22,10 @@ public class RacingCars {
         }
     }
 
+    public boolean contains(Car car) {
+        return cars.contains(car);
+    }
+
     @Override
     public String toString() {
         return "RacingCars" +
