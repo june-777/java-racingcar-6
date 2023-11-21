@@ -43,11 +43,16 @@ public class RacingCars {
     }
 
     public Map<String, Integer> getCars() {
+        Map<String, Integer> nameAndPosition = convertToNameAndPosition(cars);
+        return Collections.unmodifiableMap(nameAndPosition);
+    }
+
+    private Map<String, Integer> convertToNameAndPosition(List<Car> target) {
         Map<String, Integer> nameAndPosition = new LinkedHashMap<>();
-        for (Car car : cars) {
+        for (Car car : target) {
             nameAndPosition.put(car.getName().getName(), car.getPosition());
         }
-        return Collections.unmodifiableMap(nameAndPosition);
+        return nameAndPosition;
     }
 
     public boolean contains(Car car) {
