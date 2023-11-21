@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import static racingcar.domain.exception.CarExceptionMessage.BLANK;
 import static racingcar.domain.exception.CarExceptionMessage.CONTAIN_WRONG_ELEMENT;

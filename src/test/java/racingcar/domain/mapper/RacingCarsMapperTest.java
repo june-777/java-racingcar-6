@@ -8,9 +8,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import racingcar.domain.Car;
-import racingcar.domain.CarName;
 import racingcar.domain.RacingCars;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.CarName;
+import racingcar.domain.car.WootecoEngine;
 
 class RacingCarsMapperTest {
 
@@ -26,9 +27,9 @@ class RacingCarsMapperTest {
         void contain(String name1, String name2, String name3) {
             // given
             List<String> carNames = Arrays.asList(name1, name2, name3);
-            Car car1 = new Car(new CarName(name1), 0);
-            Car car2 = new Car(new CarName(name2), 0);
-            Car car3 = new Car(new CarName(name3), 0);
+            Car car1 = new Car(new CarName(name1), new WootecoEngine());
+            Car car2 = new Car(new CarName(name2), new WootecoEngine());
+            Car car3 = new Car(new CarName(name3), new WootecoEngine());
 
             // when
             RacingCars racingCars = racingCarsMapper.mapFrom(carNames);
