@@ -2,9 +2,11 @@ package racingcar.domain;
 
 import static racingcar.domain.exception.CarNameExceptionMessage.BLANK;
 import static racingcar.domain.exception.CarNameExceptionMessage.CONTAIN_WRONG_ELEMENT;
+import static racingcar.domain.exception.CarNameExceptionMessage.OUT_OF_LENGTH;
 
 public class CarName {
     private static final String WRONG_ELEMENT = ",";
+    private static final int MAX_LENGTH = 5;
     private final String name;
 
     public CarName(String name) {
@@ -15,6 +17,7 @@ public class CarName {
     private void validate(String name) {
         validateBlank(name);
         validateWrongExists(name);
+        validateLength(name);
     }
 
     private void validateBlank(String name) {
@@ -26,6 +29,12 @@ public class CarName {
     private void validateWrongExists(String name) {
         if (name.contains(WRONG_ELEMENT)) {
             throw new IllegalArgumentException(CONTAIN_WRONG_ELEMENT.getMessage());
+        }
+    }
+
+    private void validateLength(String name) {
+        if (name.isEmpty() || name.length() > MAX_LENGTH) {
+            throw new IllegalArgumentException(OUT_OF_LENGTH.getMessage());
         }
     }
 }
