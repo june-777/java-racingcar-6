@@ -48,4 +48,12 @@ public class Car {
     public String toString() {
         return "(" + name + "," + position + ")";
     }
+
+    public CarName getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }

@@ -61,4 +61,8 @@ public class CarName {
     public String toString() {
         return name;
     }
+
+    public String getName() {
+        return name;
+    }
 }
