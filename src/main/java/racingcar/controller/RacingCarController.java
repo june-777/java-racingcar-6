@@ -21,8 +21,8 @@ public class RacingCarController {
     public void run() {
         RacingCars racingCars = settingRacingCars();
         int totalRound = settingTotalRound();
-        //TODO:
         processTotalRoundRace(racingCars, totalRound);
+        renderingFinalWinner(racingCars);
     }
 
     private RacingCars settingRacingCars() {
@@ -41,5 +41,10 @@ public class RacingCarController {
             Map<String, Integer> cars = racingCars.getCars();
             outputView.printOneRoundResult(cars);
         }
+    }
+
+    private void renderingFinalWinner(RacingCars racingCars) {
+        List<String> winnerCars = racingCars.calculateWinnerCars();
+        outputView.printWinner(winnerCars);
     }
 }
