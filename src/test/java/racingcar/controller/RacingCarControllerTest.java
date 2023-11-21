@@ -83,6 +83,19 @@ class RacingCarControllerTest {
                         .hasMessage(CarExceptionMessage.DUPLICATE_EXISTS.getMessage());
             }
 
+            @DisplayName("[Exception] 자동차 개수가 정해진 범위를 벗어나면 domain에서 예외가 발생한다.")
+            @ParameterizedTest
+            @ValueSource(strings = {"포비"})
+            void outOfTotalCount(String input) {
+                InputView inputView = new InputView(() -> input);
+                RacingCarService racingCarService = new RacingCarService(
+                        new RacingCarsMapper());
+
+                List<String> carNames = inputView.readCarNames();
+                assertThatThrownBy(() -> racingCarService.createRacingCar(carNames))
+                        .hasMessage(CarExceptionMessage.OUT_OF_TOTAL_COUNT.getMessage());
+            }
+
             @DisplayName("[Success] 정상 입력은 예외가 발생하지 않는다.")
             @ParameterizedTest
             @ValueSource(strings = {"pobi,jun", "p obi, jun", "  포!,준 ! ",
