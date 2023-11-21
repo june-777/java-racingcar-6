@@ -55,6 +55,28 @@ public class RacingCars {
         return nameAndPosition;
     }
 
+    public List<String> calculateWinnerCars() {
+        int maxPosition = findMaxPosition();
+        List<Car> maxPositionCars = findMaxPositionCars(maxPosition);
+
+        return maxPositionCars.stream()
+                .map(car -> car.getName().getName())
+                .toList();
+    }
+
+    private int findMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
+
+    private List<Car> findMaxPositionCars(int maxPosition) {
+        return cars.stream()
+                .filter(car -> car.isSamePosition(maxPosition))
+                .toList();
+    }
+
     public boolean contains(Car car) {
         return cars.contains(car);
     }
