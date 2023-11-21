@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.Map;
 import racingcar.domain.RacingCars;
 import racingcar.service.RacingCarService;
 import racingcar.view.InputView;
@@ -21,6 +22,7 @@ public class RacingCarController {
         RacingCars racingCars = settingRacingCars();
         int totalRound = settingTotalRound();
         //TODO:
+        processTotalRoundRace(racingCars, totalRound);
     }
 
     private RacingCars settingRacingCars() {
@@ -30,5 +32,14 @@ public class RacingCarController {
 
     private int settingTotalRound() {
         return inputView.readTotalRound();
+    }
+
+    private void processTotalRoundRace(RacingCars racingCars, int totalRound) {
+        outputView.printPlayResultMessage();
+        for (int round = 1; round <= totalRound; round++) {
+            racingCars.startRace();
+            Map<String, Integer> cars = racingCars.getCars();
+            outputView.printOneRoundResult(cars);
+        }
     }
 }
