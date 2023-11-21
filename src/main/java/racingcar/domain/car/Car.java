@@ -23,6 +23,10 @@ public class Car {
         return MOVABLE_MIN_CONDITION <= power;
     }
 
+    public boolean isSamePosition(int position) {
+        return this.position == position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
